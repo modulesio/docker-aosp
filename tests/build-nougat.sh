@@ -22,10 +22,10 @@ if [ "$1" = "docker" ]; then
     prebuilts/misc/linux-x86/ccache/ccache -M 10G
 
     source build/envsetup.sh
-    lunch aosp_arm-eng
+    lunch aosp_arm64-eng
     make -j $cpus
 else
-    aosp_url="https://raw.githubusercontent.com/kylemanna/docker-aosp/master/utils/aosp"
+    aosp_url="https://raw.githubusercontent.com/modulesio/docker-aosp/master/utils/aosp"
     args="bash run.sh docker"
     export AOSP_EXTRA_ARGS="-v $(cd $(dirname $0) && pwd -P)/$(basename $0):/usr/local/bin/run.sh:ro"
     export AOSP_IMAGE="kylemanna/aosp:7.0-nougat"
